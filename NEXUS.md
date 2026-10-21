@@ -1,5 +1,5 @@
 Name: Toilet Fertilizer
-Summary: The toilet gives 4 Premium Organic Fertilizer instead of 2 Basic Fertilizer. The fertilizer and the amount can be changed. 马桶改为给 4 个高级有机肥料，而不是 2 个基础肥料。肥料种类和数量都可以修改。
+Summary: The toilet gives 4 Premium Organic Fertilizer instead of 2 Basic Fertilizer, so every trip to the bathroom feeds your crops better. Pick Basic, Compound or Premium Organic Fertilizer and how many you get, from 1 to 20. Research and other rewards that share the toilet's fertilizer package are left alone, and nothing is added to your save.
 
 Description (BBCode):
 Every trip to the toilet hands you 2 Basic Fertilizer. Toilet Fertilizer makes it worth the trip: 4 Premium Organic Fertilizer, the best fertilizer in the game.
