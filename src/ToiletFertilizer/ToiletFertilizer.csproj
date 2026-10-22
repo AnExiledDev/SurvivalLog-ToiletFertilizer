@@ -36,6 +36,7 @@
     <AssemblyMetadata Include="ModManager.Settings" Value="Restart" />
     <AssemblyMetadata Include="ModManager.GitHub" Value="AnExiledDev/SurvivalLog-ToiletFertilizer" />
     <AssemblyMetadata Include="ModManager.Changelog" Value="https://github.com/AnExiledDev/SurvivalLog-ToiletFertilizer/blob/main/CHANGELOG.md" />
+    <AssemblyMetadata Include="ModManager.NexusId" Value="77" />
   </ItemGroup>
 
 </Project>
