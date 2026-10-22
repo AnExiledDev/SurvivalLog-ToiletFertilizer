@@ -64,3 +64,52 @@ public sealed class ToiletRewardTests
         Assert.DoesNotContain(100024115, ToiletReward.ToiletEffectIds);
     }
 }
+
+public sealed class ToiletLifeTests
+{
+    [Fact]
+    public void A_usable_freshness_range_from_the_shared_package_is_kept()
+    {
+        Assert.Equal(new LifeRange(0.5f, 0.6f), ToiletReward.UsableLife(0.5f, 0.6f));
+    }
+
+    [Fact]
+    public void A_single_freshness_value_is_kept()
+    {
+        Assert.Equal(new LifeRange(0.7f, 0.7f), ToiletReward.UsableLife(0.7f, 0.7f));
+    }
+
+    [Fact]
+    public void A_freshness_range_with_min_above_max_is_turned_around_so_the_game_does_not_throw()
+    {
+        var life = ToiletReward.UsableLife(0.6f, 0.5f);
+
+        Assert.Equal(new LifeRange(0.5f, 0.6f), life);
+        Assert.True(ToiletReward.IsUsable(life.Min, life.Max));
+    }
+
+    [Theory]
+    [InlineData(float.NaN, 0.6f)]
+    [InlineData(0.5f, float.NaN)]
+    [InlineData(float.PositiveInfinity, 0.6f)]
+    [InlineData(0.5f, float.NegativeInfinity)]
+    public void A_freshness_value_that_is_not_a_number_falls_back_to_the_games_own_range(float min, float max)
+    {
+        Assert.Equal(ToiletReward.DefaultLife, ToiletReward.UsableLife(min, max));
+    }
+
+    [Theory]
+    [InlineData(0.6f, 0.5f)]
+    [InlineData(float.NaN, 0.6f)]
+    [InlineData(0.5f, float.PositiveInfinity)]
+    public void A_range_the_game_would_throw_on_is_not_usable(float min, float max)
+    {
+        Assert.False(ToiletReward.IsUsable(min, max));
+    }
+
+    [Fact]
+    public void The_fallback_is_the_game_toilet_packages_own_range()
+    {
+        Assert.Equal(new LifeRange(0.5f, 0.6f), ToiletReward.DefaultLife);
+    }
+}

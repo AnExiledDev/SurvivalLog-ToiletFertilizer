@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.1
+
+- Fixed the toilet giving nothing when another mod leaves the fertilizer package with a freshness range the game cannot use.
+
 ## 0.1.0
 
 - The toilet gives 4 Premium Organic Fertilizer instead of 2 Basic Fertilizer.

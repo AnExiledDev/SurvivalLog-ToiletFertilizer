@@ -43,7 +43,7 @@ internal sealed class RewardTables
 
         var tables = (packages.Pointer, effects.Pointer);
 
-        if (tables == _applied && !_isWantedChanged) return;
+        if (tables == _applied && !_isWantedChanged && IsToiletPackageUsable(packages)) return;
 
         _applied = tables;
         _isWantedChanged = false;
@@ -83,9 +83,29 @@ internal sealed class RewardTables
         _log($"the toilet now gives {reward.Amount} {ToiletReward.Name(_wanted.Fertilizer)} ({repointed} of {ToiletReward.ToiletEffectIds.Count} toilet effects use it)");
     }
 
-    /// <summary>A copy of the shared package with the chosen reward, so the game reads it like its own.</summary>
-    private static Config_Package ToiletPackage(Config_Package shared, Reward reward)
+    /// <summary>
+    /// False when something has changed the toilet package's freshness range since it was written into one the game
+    /// throws on, so this check writes it again.
+    /// </summary>
+    private static bool IsToiletPackageUsable(Il2CppSystem.Collections.Generic.Dictionary<int, Config_Package> packages)
     {
+        if (!packages.ContainsKey(ToiletReward.ToiletPackageId)) return true;
+
+        var row = packages[ToiletReward.ToiletPackageId];
+
+        return row == null || ToiletReward.IsUsable(row.LifeMin, row.LifeMax);
+    }
+
+    /// <summary>A copy of the shared package with the chosen reward, so the game reads it like its own.</summary>
+    private Config_Package ToiletPackage(Config_Package shared, Reward reward)
+    {
+        var life = ToiletReward.UsableLife(shared.LifeMin, shared.LifeMax);
+
+        if (life != new LifeRange(shared.LifeMin, shared.LifeMax))
+        {
+            _log($"package {ToiletReward.SharedPackageId} has a freshness range the game cannot use ({shared.LifeMin} to {shared.LifeMax}), so the toilet uses {life.Min} to {life.Max}");
+        }
+
         var row = new Config_Package
         {
             ID = ToiletReward.ToiletPackageId,
@@ -95,8 +115,8 @@ internal sealed class RewardTables
             RandomAmount = new Il2CppInts(),
             ItemIdList = new Il2CppInts(),
             ItemCountList = new Il2CppInts(),
-            LifeMin = shared.LifeMin,
-            LifeMax = shared.LifeMax,
+            LifeMin = life.Min,
+            LifeMax = life.Max,
         };
 
         row.ItemIdList.Add(reward.ItemId);

@@ -48,7 +48,7 @@ Settings live in `BepInEx\config\com.dev.survivallog.toiletfertilizer.cfg`, crea
 
 Built against BepInEx `6.0.0-be.788`.
 
-Check `BepInEx\LogOutput.log` for `===== Toilet Fertilizer 0.1.0 started`. Once a game has loaded, a line starting with `the toilet now gives` shows the fertilizer and amount in use and how many of the 2 toilet effects use it.
+Check `BepInEx\LogOutput.log` for `===== Toilet Fertilizer 0.1.1 started`. Once a game has loaded, a line starting with `the toilet now gives` shows the fertilizer and amount in use and how many of the 2 toilet effects use it.
 
 ## Feedback and bug reports
 
