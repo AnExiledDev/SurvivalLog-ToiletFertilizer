@@ -93,6 +93,8 @@ public sealed class ToiletLifeTests
     [InlineData(0.5f, float.NaN)]
     [InlineData(float.PositiveInfinity, 0.6f)]
     [InlineData(0.5f, float.NegativeInfinity)]
+    [InlineData(0.5f, 3e6f)]
+    [InlineData(-3e6f, 0.6f)]
     public void A_freshness_value_that_is_not_a_number_falls_back_to_the_games_own_range(float min, float max)
     {
         Assert.Equal(ToiletReward.DefaultLife, ToiletReward.UsableLife(min, max));
@@ -102,6 +104,7 @@ public sealed class ToiletLifeTests
     [InlineData(0.6f, 0.5f)]
     [InlineData(float.NaN, 0.6f)]
     [InlineData(0.5f, float.PositiveInfinity)]
+    [InlineData(0.5f, 3e6f)]
     public void A_range_the_game_would_throw_on_is_not_usable(float min, float max)
     {
         Assert.False(ToiletReward.IsUsable(min, max));

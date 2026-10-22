@@ -40,18 +40,26 @@ public static class ToiletReward
     public static readonly LifeRange DefaultLife = new(0.5f, 0.6f);
 
     /// <summary>
-    /// The game picks freshness with Random.Next(min, max), which throws when min is above max and the toilet then gives
-    /// nothing, so only a finite range with min at or below max is safe to hand it.
+    /// Far above any real freshness. The game turns freshness times 1000 into an int, and past about 2 million that
+    /// overflows into a range it throws on.
     /// </summary>
-    public static bool IsUsable(float min, float max) => float.IsFinite(min) && float.IsFinite(max) && min <= max;
+    public const float MaxLife = 1000f;
 
-    /// <summary>A freshness range the game can use: the given one, turned around if inverted, or the game's own if it is not a number.</summary>
+    /// <summary>
+    /// The game picks freshness with Random.Next(min, max), which throws when min is above max and the toilet then gives
+    /// nothing, so only a range of real numbers with min at or below max is safe to hand it.
+    /// </summary>
+    public static bool IsUsable(float min, float max) => IsReal(min) && IsReal(max) && min <= max;
+
+    /// <summary>A freshness range the game can use: the given one, turned around if inverted, or the game's own if it is not a real number.</summary>
     public static LifeRange UsableLife(float min, float max)
     {
-        if (!float.IsFinite(min) || !float.IsFinite(max)) return DefaultLife;
+        if (!IsReal(min) || !IsReal(max)) return DefaultLife;
 
         return min <= max ? new LifeRange(min, max) : new LifeRange(max, min);
     }
+
+    private static bool IsReal(float life) => float.IsFinite(life) && Math.Abs(life) <= MaxLife;
 
     public static Reward For(Fertilizer fertilizer, int amount) => new(ItemId(fertilizer), Math.Clamp(amount, MinAmount, MaxAmount));
 

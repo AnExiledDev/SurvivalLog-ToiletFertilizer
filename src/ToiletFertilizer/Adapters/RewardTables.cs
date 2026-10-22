@@ -17,6 +17,10 @@ internal sealed class RewardTables
     private (Fertilizer Fertilizer, int Amount) _wanted = (Fertilizer.PremiumOrganic, 4);
     private (IntPtr Packages, IntPtr Effects) _applied;
     private bool _isWantedChanged;
+
+    /// <summary>Set once a rewrite after another mod broke the package is logged, so a mod that keeps breaking it does not fill the log.</summary>
+    private bool _isRepairLogged;
+
     private float _nextCheckAt;
 
     public RewardTables(Action<string> log) => _log = log;
@@ -43,14 +47,17 @@ internal sealed class RewardTables
 
         var tables = (packages.Pointer, effects.Pointer);
 
-        if (tables == _applied && !_isWantedChanged && IsToiletPackageUsable(packages)) return;
+        var isRepair = tables == _applied && !_isWantedChanged;
+
+        if (isRepair && IsToiletPackageUsable(packages)) return;
 
         _applied = tables;
         _isWantedChanged = false;
 
         try
         {
-            Write(packages, effects);
+            Write(packages, effects, isQuiet: isRepair && _isRepairLogged);
+            _isRepairLogged |= isRepair;
         }
         catch (Exception ex)
         {
@@ -60,18 +67,21 @@ internal sealed class RewardTables
 
     private void Write(
         Il2CppSystem.Collections.Generic.Dictionary<int, Config_Package> packages,
-        Il2CppSystem.Collections.Generic.Dictionary<int, Config_Effect> effects)
+        Il2CppSystem.Collections.Generic.Dictionary<int, Config_Effect> effects,
+        bool isQuiet)
     {
+        Action<string> log = isQuiet ? _ => { } : _log;
+
         if (!packages.ContainsKey(ToiletReward.SharedPackageId))
         {
-            _log($"package {ToiletReward.SharedPackageId} is missing from the game, so the toilet keeps the game's own reward");
+            log($"package {ToiletReward.SharedPackageId} is missing from the game, so the toilet keeps the game's own reward");
 
             return;
         }
 
         var reward = ToiletReward.For(_wanted.Fertilizer, _wanted.Amount);
 
-        packages[ToiletReward.ToiletPackageId] = ToiletPackage(packages[ToiletReward.SharedPackageId], reward);
+        packages[ToiletReward.ToiletPackageId] = ToiletPackage(packages[ToiletReward.SharedPackageId], reward, log);
 
         var repointed = 0;
 
@@ -80,7 +90,7 @@ internal sealed class RewardTables
             if (effects.ContainsKey(effectId) && RepointRewards(effects[effectId].ItemGetEnd)) repointed++;
         }
 
-        _log($"the toilet now gives {reward.Amount} {ToiletReward.Name(_wanted.Fertilizer)} ({repointed} of {ToiletReward.ToiletEffectIds.Count} toilet effects use it)");
+        log($"the toilet now gives {reward.Amount} {ToiletReward.Name(_wanted.Fertilizer)} ({repointed} of {ToiletReward.ToiletEffectIds.Count} toilet effects use it)");
     }
 
     /// <summary>
@@ -97,13 +107,13 @@ internal sealed class RewardTables
     }
 
     /// <summary>A copy of the shared package with the chosen reward, so the game reads it like its own.</summary>
-    private Config_Package ToiletPackage(Config_Package shared, Reward reward)
+    private static Config_Package ToiletPackage(Config_Package shared, Reward reward, Action<string> log)
     {
         var life = ToiletReward.UsableLife(shared.LifeMin, shared.LifeMax);
 
         if (life != new LifeRange(shared.LifeMin, shared.LifeMax))
         {
-            _log($"package {ToiletReward.SharedPackageId} has a freshness range the game cannot use ({shared.LifeMin} to {shared.LifeMax}), so the toilet uses {life.Min} to {life.Max}");
+            log($"package {ToiletReward.SharedPackageId} has a freshness range the game cannot use ({shared.LifeMin} to {shared.LifeMax}), so the toilet uses {life.Min} to {life.Max}");
         }
 
         var row = new Config_Package
