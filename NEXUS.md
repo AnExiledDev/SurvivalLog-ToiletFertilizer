@@ -43,7 +43,7 @@ Only the toilet's reward changes. Anything else that gives fertilizer is left as
 Delete [font=Courier New]ToiletFertilizer.dll[/font] from the [font=Courier New]BepInEx\plugins[/font] folder. The toilet goes back to 2 Basic Fertilizer at the next game start.
 
 [size=5]Configuration[/size]
-To change settings, edit [font=Courier New]BepInEx\config\com.dev.survivallog.toiletfertilizer.cfg[/font] while the game is closed, or do it in game on the Mod Manager's Mods screen, where changes take effect at once (see [url=https://github.com/AnExiledDev/SurvivalLog-ToiletFertilizer/blob/main/CONFIG.md]CONFIG.md[/url] for every setting; the cfg file explains each setting in English and Chinese). Without Exiled's Toolkit installed, changes made on the Mods screen take effect at the next game start instead.
+To change settings, edit [font=Courier New]BepInEx\config\com.dev.survivallog.toiletfertilizer.cfg[/font] while the game is closed, or do it in game on the Mod Manager's Mods screen, where changes take effect at once (see [url=https://github.com/AnExiledDev/SurvivalLog-ToiletFertilizer/blob/main/CONFIG.md]CONFIG.md[/url] for every setting; the cfg file explains each setting in English and Chinese). With Exiled's Toolkit 0.17.0 or newer, each world can keep its own fertilizer and amount: pick them for a new world in Customizable Difficulty, or, while you play, change them for that world alone on the Mods screen. Without Exiled's Toolkit installed, changes made on the Mods screen take effect at the next game start instead.
 
 [size=5]Feedback[/size]
 Found a bug or have an idea? Come say hi on the [url=https://discord.gg/trTsyxUFqg]Core Directive Discord[/url], or post in this page's Posts tab. For bugs, please include [font=Courier New]BepInEx\LogOutput.log[/font].
@@ -91,7 +91,7 @@ Toilet Fertilizer 不会往存档里添加任何内容，也不会修改游戏�
 从 [font=Courier New]BepInEx\plugins[/font] 文件夹中删除 [font=Courier New]ToiletFertilizer.dll[/font]。下次启动游戏时，马桶会恢复为给 2 个基础肥料。
 
 [size=5]配置[/size]
-可以在游戏内 Mod Manager 的「模组」界面修改，改动立即生效；也可以在游戏关闭时编辑 [font=Courier New]BepInEx\config\com.dev.survivallog.toiletfertilizer.cfg[/font]。配置文件中每项设置都有中文说明，完整说明见 [url=https://github.com/AnExiledDev/SurvivalLog-ToiletFertilizer/blob/main/CONFIG.md]CONFIG.md[/url]（英文）。没装 Exiled's Toolkit 的话，在「模组」界面的改动改为在下次启动游戏时生效。
+可以在游戏内 Mod Manager 的「模组」界面修改，改动立即生效；也可以在游戏关闭时编辑 [font=Courier New]BepInEx\config\com.dev.survivallog.toiletfertilizer.cfg[/font]。配置文件中每项设置都有中文说明，完整说明见 [url=https://github.com/AnExiledDev/SurvivalLog-ToiletFertilizer/blob/main/CONFIG.md]CONFIG.md[/url]（英文）。装了 Exiled's Toolkit 0.17.0 或更新版本时，每个存档都可以有自己的肥料种类和数量：新存档可以在「自定义难度」里选，游戏中也可以在「模组」界面只为当前存档修改。没装 Exiled's Toolkit 的话，在「模组」界面的改动改为在下次启动游戏时生效。
 
 [size=5]反馈[/size]
 发现 bug 或有好点子？欢迎来 [url=https://discord.gg/trTsyxUFqg]Core Directive Discord[/url] 打个招呼，或在本页的「Posts」标签里发帖。报告 bug 时，请附上 [font=Courier New]BepInEx\LogOutput.log[/font]。
