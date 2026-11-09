@@ -28,6 +28,11 @@ public static class ToiletReward
     /// <summary>Unused by the game, whose packages stop at 30039.</summary>
     public const int ToiletPackageId = 39501;
 
+    /// <summary>The game's own toilet reward, and the settings' defaults: installing the mod changes no balance.</summary>
+    public const Fertilizer GameFertilizer = Fertilizer.Basic;
+
+    public const int GameAmount = 2;
+
     public const int MinAmount = 1;
 
     /// <summary>One full stack of fertilizer.</summary>

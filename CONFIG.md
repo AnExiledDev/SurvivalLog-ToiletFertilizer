@@ -6,7 +6,7 @@ Settings live in `BepInEx\config\com.dev.survivallog.toiletfertilizer.cfg`, crea
 
 | Setting | Default | What it does |
 | --- | --- | --- |
-| `Fertilizer` | `PremiumOrganic` | Which fertilizer the toilet gives: `Basic` (Basic Fertilizer), `Compound` (Compound Fertilizer) or `PremiumOrganic` (Premium Organic Fertilizer, the best one). |
-| `Amount` | `4` | How many of that fertilizer each toilet use gives, from 1 to 20 (one full stack). The game's own toilet gives 2. |
+| `Fertilizer` | `Basic` | Which fertilizer the toilet gives: `Basic` (Basic Fertilizer), `Compound` (Compound Fertilizer) or `PremiumOrganic` (Premium Organic Fertilizer, the best one). The game's own toilet gives `Basic`. |
+| `Amount` | `2` | How many of that fertilizer each toilet use gives, from 1 to 20 (one full stack). The game's own toilet gives 2. |
 
-To get the game's own reward back while keeping the mod, set `Fertilizer` to `Basic` and `Amount` to `2`.
+The defaults are the game's own reward. For the best fertilizer and twice as much, set `Fertilizer` to `PremiumOrganic` and `Amount` to `4`.

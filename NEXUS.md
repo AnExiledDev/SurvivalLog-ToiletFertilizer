@@ -1,15 +1,17 @@
 Name: Toilet Fertilizer
-Summary: The toilet gives 4 Premium Organic Fertilizer instead of 2 Basic Fertilizer, so every trip to the bathroom feeds your crops better. Pick Basic, Compound or Premium Organic Fertilizer and how many you get, from 1 to 20. Research and other rewards that give the same fertilizer don't change, and nothing is added to your save.
+Summary: Choose what the toilet gives: Basic, Compound or Premium Organic Fertilizer, from 1 to 20 per use, so every trip to the bathroom can feed your crops better. It starts at the game's own 2 Basic Fertilizer until you pick one in game or in the config. Research and other rewards that give the same fertilizer don't change, and nothing is added to your save.
 
 Description (BBCode):
 [center][img]https://sldb.core-directive.com/media/save/1-save-safe.png[/img][/center]
 
-Every trip to the toilet hands you 2 Basic Fertilizer. Toilet Fertilizer makes it worth the trip: 4 Premium Organic Fertilizer, the best fertilizer in the game.
+Every trip to the toilet hands you 2 Basic Fertilizer. Toilet Fertilizer lets you make it worth the trip: 4 Premium Organic Fertilizer, the best fertilizer in the game, or whatever you pick.
+
+Out of the box it changes nothing: the toilet keeps the game's own 2 Basic Fertilizer until you set [font=Courier New]Fertilizer[/font] and [font=Courier New]Amount[/font] on the Mod Manager's Mods screen or in the config.
 
 [size=5]Main features[/size]
 [list]
-[*][b]Better fertilizer[/b]: each toilet use gives Premium Organic Fertilizer instead of Basic Fertilizer.[/*]
-[*][b]More of it[/b]: 4 per use by default instead of 2.[/*]
+[*][b]Better fertilizer[/b]: have each toilet use give Compound or Premium Organic Fertilizer instead of Basic Fertilizer.[/*]
+[*][b]More of it[/b]: any amount per use instead of 2.[/*]
 [*][b]Your choice[/b]: pick Basic, Compound or Premium Organic Fertilizer, and any amount from 1 to 20.[/*]
 [*][b]Nothing else changes[/b]: research and other things that give the same fertilizer package as the toilet keep the game's own reward.[/*]
 [/list]
@@ -25,7 +27,7 @@ Only the toilet's reward changes. Anything else that gives fertilizer is left as
 
 [size=5]Requirements[/size]
 [list]
-[*]Survival Log 1.1.19611. A game update can break it until the mod is updated.[/*]
+[*]Survival Log 1.1.20719. A game update can break it until the mod is updated.[/*]
 [*][url=https://www.nexusmods.com/survivallog/mods/12]BepInEx for Survival Log[/url]. Install it first.[/*]
 [*]Optional: [url=https://www.nexusmods.com/survivallog/mods/61]Exiled's Toolkit[/url] 0.4.0 or newer. With it, settings changed on the Mod Manager's Mods screen take effect without restarting the game. Without it, they take effect at the next game start.[/*]
 [*]Optional: [url=https://www.nexusmods.com/survivallog/mods/73]Mod Manager[/url]. With it, you can change every setting in game on its Mods screen and see what each one does, without opening the config file.[/*]
@@ -56,12 +58,14 @@ Open source under MIT: [url=https://github.com/AnExiledDev/SurvivalLog-ToiletFer
 [line]
 [size=5]简体中文[/size]
 
-每次上厕所只给 2 个基础肥料？Toilet Fertilizer 让这一趟更值：改为给 4 个高级有机肥料，游戏里最好的肥料。
+每次上厕所只给 2 个基础肥料？Toilet Fertilizer 让你把这一趟变得更值：比如改为给 4 个高级有机肥料，游戏里最好的肥料。
+
+默认不做任何改动：在 Mod Manager 的「模组」界面或配置里设置 [font=Courier New]Fertilizer[/font] 和 [font=Courier New]Amount[/font] 之前，马桶仍给游戏原本的 2 个基础肥料。
 
 [size=5]主要功能[/size]
 [list]
-[*][b]更好的肥料[/b]：每次上厕所给高级有机肥料，而不是基础肥料。[/*]
-[*][b]数量更多[/b]：默认每次 4 个，而不是 2 个。[/*]
+[*][b]更好的肥料[/b]：可以让每次上厕所给复合肥料或高级有机肥料，而不是基础肥料。[/*]
+[*][b]数量更多[/b]：每次给多少个由你决定，而不是 2 个。[/*]
 [*][b]自由选择[/b]：可选基础肥料、复合肥料或高级有机肥料，数量 1 到 20 任选。[/*]
 [*][b]其他不变[/b]：研究等和马桶共用同一个肥料包的奖励，仍按游戏原样发放。[/*]
 [/list]
@@ -74,7 +78,7 @@ Toilet Fertilizer 不会往存档里添加任何内容，也不会修改游戏�
 
 [size=5]前置要求[/size]
 [list]
-[*]Survival Log 1.1.19611。游戏更新后模组可能暂时失效，直到模组更新为止。[/*]
+[*]Survival Log 1.1.20719。游戏更新后模组可能暂时失效，直到模组更新为止。[/*]
 [*][url=https://www.nexusmods.com/survivallog/mods/12]BepInEx for Survival Log[/url]，请先安装。[/*]
 [*]可选：[url=https://www.nexusmods.com/survivallog/mods/61]Exiled's Toolkit[/url] 0.4.0 或更新版本。装了它，在 Mod Manager 的「模组」界面改动的设置无需重启游戏即可生效；没装的话，改动在下次启动游戏时生效。[/*]
 [*]可选：[url=https://www.nexusmods.com/survivallog/mods/73]Mod Manager[/url]。装了它，可以在游戏里它的「模组」界面修改每项设置，并看到每项的说明，不用打开配置文件。[/*]

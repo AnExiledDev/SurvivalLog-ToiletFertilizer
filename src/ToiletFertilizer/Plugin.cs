@@ -11,17 +11,17 @@ namespace ToiletFertilizer;
 public sealed class Plugin : BasePlugin
 {
     private const string Guid = "com.dev.survivallog.toiletfertilizer";
-    private const string Version = "0.2.0";
+    private const string Version = "0.2.1";
 
     public override void Load()
     {
         if (!OptionalLive.IsToolkitInstalled) Log.LogInfo(OptionalLive.MissingNote);
 
-        var fertilizer = Config.Bind("Reward", "Fertilizer", Fertilizer.PremiumOrganic, new ConfigDescription(
-            "Which fertilizer the toilet gives: Basic, Compound or PremiumOrganic (Premium Organic Fertilizer, the best one).\n" +
-            "马桶给的肥料种类：Basic（基础肥料）、Compound（复合肥料）或 PremiumOrganic（高级有机肥料，效果最好）。",
+        var fertilizer = Config.Bind("Reward", "Fertilizer", ToiletReward.GameFertilizer, new ConfigDescription(
+            "Which fertilizer the toilet gives: Basic, Compound or PremiumOrganic (Premium Organic Fertilizer, the best one). The game's own toilet gives Basic.\n" +
+            "马桶给的肥料种类：Basic（基础肥料）、Compound（复合肥料）或 PremiumOrganic（高级有机肥料，效果最好）。游戏原本给 Basic。",
             null, WorldRule.Tag));
-        var amount = Config.Bind("Reward", "Amount", 4,
+        var amount = Config.Bind("Reward", "Amount", ToiletReward.GameAmount,
             new ConfigDescription("How many of that fertilizer each toilet use gives. The game's own toilet gives 2.\n" +
             "每次上厕所给多少个这种肥料。游戏原本给 2 个。",
             new AcceptableValueRange<int>(ToiletReward.MinAmount, ToiletReward.MaxAmount), WorldRule.Tag));

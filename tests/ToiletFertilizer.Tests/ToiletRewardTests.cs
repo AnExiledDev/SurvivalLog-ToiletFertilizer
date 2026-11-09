@@ -15,6 +15,13 @@ public sealed class ToiletRewardTests
     }
 
     [Fact]
+    public void The_default_reward_is_the_games_own_two_basic_fertilizer()
+    {
+        // Installing the mod must change no balance until the player picks a reward.
+        Assert.Equal(new Reward(15501, 2), ToiletReward.For(ToiletReward.GameFertilizer, ToiletReward.GameAmount));
+    }
+
+    [Fact]
     public void The_chosen_amount_is_handed_out_as_set()
     {
         Assert.Equal(7, ToiletReward.For(Fertilizer.PremiumOrganic, 7).Amount);

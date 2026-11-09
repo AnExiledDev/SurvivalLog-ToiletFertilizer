@@ -14,7 +14,7 @@ internal sealed class RewardTables
     private const float CheckSeconds = 1f;
 
     private readonly Action<string> _log;
-    private (Fertilizer Fertilizer, int Amount) _wanted = (Fertilizer.PremiumOrganic, 4);
+    private (Fertilizer Fertilizer, int Amount) _wanted = (ToiletReward.GameFertilizer, ToiletReward.GameAmount);
     private (IntPtr Packages, IntPtr Effects) _applied;
     private bool _isWantedChanged;
 

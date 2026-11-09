@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.2.1
+
+- A new install now starts at the game's own reward, 2 Basic Fertilizer. Set `Fertilizer` to `PremiumOrganic` and `Amount` to `4` for the old defaults. Settings you already saved are kept.
+- Made for Survival Log 1.1.20719.
+
 ## 0.2.0
 
 - Each world can keep its own `Fertilizer` and `Amount`. With Exiled's Toolkit 0.17.0 or newer, pick them for a new world in Customizable Difficulty, or change them for the world you are playing on the Mod Manager's Mods screen.

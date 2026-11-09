@@ -1,11 +1,11 @@
 # Toilet Fertilizer
 
-The toilet gives 4 Premium Organic Fertilizer instead of 2 Basic Fertilizer. The fertilizer and the amount can be changed.
+Choose which fertilizer the toilet gives and how many. Out of the box it changes nothing: the toilet keeps the game's own 2 Basic Fertilizer until you set `Fertilizer` and `Amount` (`PremiumOrganic` and `4`, say).
 
 ## Features
 
-- **Better fertilizer**: each toilet use gives Premium Organic Fertilizer, the best fertilizer in the game, instead of Basic Fertilizer.
-- **More of it**: 4 per use by default instead of 2.
+- **Better fertilizer**: have each toilet use give Compound or Premium Organic Fertilizer, the best fertilizer in the game, instead of Basic Fertilizer.
+- **More of it**: any amount per use instead of 2.
 - **Your choice**: pick Basic, Compound or Premium Organic Fertilizer, and any amount from 1 to 20 (one full stack).
 - **Nothing else changes**: research and other things that hand out the same fertilizer package as the toilet keep the game's own reward.
 
@@ -24,7 +24,7 @@ The game's toilet hands out a fertilizer package that research and one item also
 
 ## Requirements
 
-- Survival Log 1.1.19611. Built for this version; a game update can break it until the mod is updated.
+- Survival Log 1.1.20719. Built for this version; a game update can break it until the mod is updated.
 - The [BepInEx Pack for Survival Log](https://www.nexusmods.com/survivallog/mods/12), the BepInEx 6 (IL2CPP) build for the game.
 - Optional: [Exiled's Toolkit](https://github.com/AnExiledDev/SurvivalLog-ExiledToolkit) 0.4.0 or newer. With it, settings changed on the Mod Manager's Mods screen take effect without restarting the game. Without it, they take effect at the next game start.
 - Optional: [Mod Manager](https://www.nexusmods.com/survivallog/mods/73). With it, you can change every setting in game on its Mods screen and see what each one does, without opening the config file.
