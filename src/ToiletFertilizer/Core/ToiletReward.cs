@@ -28,7 +28,7 @@ public static class ToiletReward
     /// <summary>Unused by the game, whose packages stop at 30039.</summary>
     public const int ToiletPackageId = 39501;
 
-    /// <summary>The game's own toilet reward, and the settings' defaults: installing the mod changes no balance.</summary>
+    /// <summary>The game's toilet reward, and the settings' defaults: installing the mod changes no balance.</summary>
     public const Fertilizer GameFertilizer = Fertilizer.Basic;
 
     public const int GameAmount = 2;
@@ -56,7 +56,7 @@ public static class ToiletReward
     /// </summary>
     public static bool IsUsable(float min, float max) => IsReal(min) && IsReal(max) && min <= max;
 
-    /// <summary>A freshness range the game can use: the given one, turned around if inverted, or the game's own if it is not a real number.</summary>
+    /// <summary>A freshness range the game can use: the given one, turned around if inverted, or the game's if it is not a real number.</summary>
     public static LifeRange UsableLife(float min, float max)
     {
         if (!IsReal(min) || !IsReal(max)) return DefaultLife;

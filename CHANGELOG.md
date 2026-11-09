@@ -2,7 +2,7 @@
 
 ## 0.2.1
 
-- A new install now starts at the game's own reward, 2 Basic Fertilizer. Set `Fertilizer` to `PremiumOrganic` and `Amount` to `4` for the old defaults. Settings you already saved are kept.
+- A new install now starts at the game's reward, 2 Basic Fertilizer. Set `Fertilizer` to `PremiumOrganic` and `Amount` to `4` for the old defaults. Settings you already saved are kept.
 - Made for Survival Log 1.1.20719.
 
 ## 0.2.0

@@ -1,19 +1,19 @@
 Name: Toilet Fertilizer
-Summary: Choose what the toilet gives: Basic, Compound or Premium Organic Fertilizer, from 1 to 20 per use, so every trip to the bathroom can feed your crops better. It starts at the game's own 2 Basic Fertilizer until you pick one in game or in the config. Research and other rewards that give the same fertilizer don't change, and nothing is added to your save.
+Summary: Choose what the toilet gives: Basic, Compound or Premium Organic Fertilizer, from 1 to 20 per use, so every trip to the bathroom can feed your crops better. It starts at the game's 2 Basic Fertilizer until you pick one in game or in the config. Research and other rewards that give the same fertilizer don't change, and nothing is added to your save.
 
 Description (BBCode):
 [center][img]https://sldb.core-directive.com/media/save/1-save-safe.png[/img][/center]
 
 Every trip to the toilet hands you 2 Basic Fertilizer. Toilet Fertilizer lets you make it worth the trip: 4 Premium Organic Fertilizer, the best fertilizer in the game, or whatever you pick.
 
-Out of the box it changes nothing: the toilet keeps the game's own 2 Basic Fertilizer until you set [font=Courier New]Fertilizer[/font] and [font=Courier New]Amount[/font] on the Mod Manager's Mods screen or in the config.
+Out of the box it changes nothing: the toilet keeps the game's 2 Basic Fertilizer until you set [font=Courier New]Fertilizer[/font] and [font=Courier New]Amount[/font] on the Mod Manager's Mods screen or in the config.
 
 [size=5]Main features[/size]
 [list]
 [*][b]Better fertilizer[/b]: have each toilet use give Compound or Premium Organic Fertilizer instead of Basic Fertilizer.[/*]
 [*][b]More of it[/b]: any amount per use instead of 2.[/*]
 [*][b]Your choice[/b]: pick Basic, Compound or Premium Organic Fertilizer, and any amount from 1 to 20.[/*]
-[*][b]Nothing else changes[/b]: research and other things that give the same fertilizer package as the toilet keep the game's own reward.[/*]
+[*][b]Nothing else changes[/b]: research and other things that give the same fertilizer package as the toilet keep the game's reward.[/*]
 [/list]
 Toilet Fertilizer adds nothing to your save and does not edit game files. You can remove it at any time.
 

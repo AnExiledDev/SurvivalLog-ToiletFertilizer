@@ -1,13 +1,13 @@
 # Toilet Fertilizer
 
-Choose which fertilizer the toilet gives and how many. Out of the box it changes nothing: the toilet keeps the game's own 2 Basic Fertilizer until you set `Fertilizer` and `Amount` (`PremiumOrganic` and `4`, say).
+Choose which fertilizer the toilet gives and how many. Out of the box it changes nothing: the toilet keeps the game's 2 Basic Fertilizer until you set `Fertilizer` and `Amount` (`PremiumOrganic` and `4`, say).
 
 ## Features
 
 - **Better fertilizer**: have each toilet use give Compound or Premium Organic Fertilizer, the best fertilizer in the game, instead of Basic Fertilizer.
 - **More of it**: any amount per use instead of 2.
 - **Your choice**: pick Basic, Compound or Premium Organic Fertilizer, and any amount from 1 to 20 (one full stack).
-- **Nothing else changes**: research and other things that hand out the same fertilizer package as the toilet keep the game's own reward.
+- **Nothing else changes**: research and other things that hand out the same fertilizer package as the toilet keep the game's reward.
 
 Toilet Fertilizer adds nothing to your save and does not edit game files. You can remove it at any time; the toilet goes back to 2 Basic Fertilizer at the next game start.
 
