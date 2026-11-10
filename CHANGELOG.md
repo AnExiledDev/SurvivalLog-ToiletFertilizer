@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.2.2
+
+- Now uses Exiled's Toolkit for its shared parts, so it needs Exiled's Toolkit 0.19.0 or newer. Settings you change on the Mods screen always take effect right away.
+- Made for Survival Log 1.1.20719.
+
 ## 0.2.1
 
 - A new install now starts at the game's reward, 2 Basic Fertilizer. Set `Fertilizer` to `PremiumOrganic` and `Amount` to `4` for the old defaults. Settings you already saved are kept.

@@ -1,4 +1,5 @@
 using System;
+using ExiledToolkit.Game;
 using GameCore.HotUpdate;
 using ToiletFertilizer.Core;
 using Il2CppInts = Il2CppSystem.Collections.Generic.List<int>;
@@ -37,9 +38,7 @@ internal sealed class RewardTables
 
         _nextCheckAt = now + CheckSeconds;
 
-        if (!BaseSingleton<ConfigManager>.IsInstanceCreated) return;
-
-        var config = BaseSingleton<ConfigManager>.Instance;
+        var config = GameSingleton.Existing<ConfigManager>();
         var packages = config?._Config_Package_Dict;
         var effects = config?._Config_Effect_Dict;
 
