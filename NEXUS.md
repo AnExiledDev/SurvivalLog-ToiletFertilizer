@@ -2,7 +2,8 @@ Name: Toilet Fertilizer
 Summary: Choose what the toilet gives: Basic, Compound or Premium Organic Fertilizer, from 1 to 20 per use, so every trip to the bathroom can feed your crops better. It starts at the game's 2 Basic Fertilizer until you pick one in game or in the config. Research and other rewards that give the same fertilizer don't change, and nothing is added to your save.
 
 Description (BBCode):
-[center][img]https://sldb.core-directive.com/media/save/1-save-safe.png[/img][/center]
+[center][img]https://sldb.core-directive.com/media/save/1-save-safe.png[/img]
+[img]https://sldb.core-directive.com/media/notice/off.png[/img][/center]
 
 Every trip to the toilet hands you 2 Basic Fertilizer. Toilet Fertilizer lets you make it worth the trip: 4 Premium Organic Fertilizer, the best fertilizer in the game, or whatever you pick.
 
