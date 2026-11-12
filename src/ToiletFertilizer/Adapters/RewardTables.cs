@@ -60,7 +60,7 @@ internal sealed class RewardTables
         }
         catch (Exception ex)
         {
-            _log("could not change the toilet reward, so the toilet keeps the game's: " + ex);
+            _log("could not change the toilet reward, so the toilet gives its normal reward: " + ex);
         }
     }
 
@@ -73,7 +73,7 @@ internal sealed class RewardTables
 
         if (!packages.ContainsKey(ToiletReward.SharedPackageId))
         {
-            log($"package {ToiletReward.SharedPackageId} is missing from the game, so the toilet keeps the game's reward");
+            log($"package {ToiletReward.SharedPackageId} is missing from the game, so the toilet gives its normal reward");
 
             return;
         }

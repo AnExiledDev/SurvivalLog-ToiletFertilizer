@@ -1,27 +1,26 @@
 Name: Toilet Fertilizer
-Summary: Choose what the toilet gives: Basic, Compound or Premium Organic Fertilizer, from 1 to 20 per use, so every trip to the bathroom can feed your crops better. It starts at the game's 2 Basic Fertilizer until you pick one in game or in the config. Research and other rewards that give the same fertilizer don't change, and nothing is added to your save.
+Summary: Choose which fertilizer the toilet gives and how many: Basic, Compound or Premium Organic Fertilizer, from 1 to 20 per use. By default the toilet still gives 2 Basic Fertilizer until you change it on the Mods screen or in the config. Research and the item that also give 2 Basic Fertilizer stay the same, and nothing is added to your save.
 
 Description (BBCode):
 [center][img]https://sldb.core-directive.com/media/save/1-save-safe.png[/img]
 [img]https://sldb.core-directive.com/media/notice/off.png[/img][/center]
 
-Every trip to the toilet hands you 2 Basic Fertilizer. Toilet Fertilizer lets you make it worth the trip: 4 Premium Organic Fertilizer, the best fertilizer in the game, or whatever you pick.
+Every trip to the toilet gives you 2 Basic Fertilizer. With Toilet Fertilizer you pick what it gives instead, like 4 Premium Organic Fertilizer, the best fertilizer in the game.
 
-Out of the box it changes nothing: the toilet keeps the game's 2 Basic Fertilizer until you set [font=Courier New]Fertilizer[/font] and [font=Courier New]Amount[/font] on the Mod Manager's Mods screen or in the config.
+By default nothing changes. The toilet still gives 2 Basic Fertilizer until you change [font=Courier New]Fertilizer[/font] and [font=Courier New]Amount[/font] on the Mod Manager's Mods screen or in the config.
 
 [size=5]Main features[/size]
 [list]
-[*][b]Better fertilizer[/b]: have each toilet use give Compound or Premium Organic Fertilizer instead of Basic Fertilizer.[/*]
-[*][b]More of it[/b]: any amount per use instead of 2.[/*]
-[*][b]Your choice[/b]: pick Basic, Compound or Premium Organic Fertilizer, and any amount from 1 to 20.[/*]
-[*][b]Nothing else changes[/b]: research and other things that give the same fertilizer package as the toilet keep the game's reward.[/*]
+[*][b]Pick the fertilizer[/b]: Basic, Compound or Premium Organic Fertilizer. Premium Organic is the best fertilizer in the game.[/*]
+[*][b]Pick the amount[/b]: anywhere from 1 to 20 per toilet use, where 20 is one full stack. Without the mod the toilet gives 2.[/*]
+[*][b]Only the toilet changes[/b]: research and the item that also give 2 Basic Fertilizer still give 2 Basic Fertilizer.[/*]
 [/list]
 Toilet Fertilizer adds nothing to your save and does not edit game files. You can remove it at any time.
 
-Works in English and Chinese.
+Every setting is explained in English and Chinese.
 
 [size=5]Known issues[/size]
-Only the toilet's reward changes. Anything else that gives fertilizer is left as the game has it.
+Only the toilet's reward changes. Anything else that gives fertilizer works like it normally does.
 
 [center][img]https://sldb.core-directive.com/img/mods-banner.jpg[/img]
 [size=4][url=https://www.nexusmods.com/survivallog/mods/73]Get Mod Manager[/url] to set up all your mods in game  |  [url=https://sldb.core-directive.com/en/]Open the Survival Log wiki[/url] for items, recipes and maps[/size][/center]
@@ -47,11 +46,11 @@ Only the toilet's reward changes. Anything else that gives fertilizer is left as
 Delete [font=Courier New]ToiletFertilizer.dll[/font] from the [font=Courier New]BepInEx\plugins[/font] folder. The toilet goes back to 2 Basic Fertilizer at the next game start.
 
 [size=5]Configuration[/size]
-To change settings, edit [font=Courier New]BepInEx\config\com.dev.survivallog.toiletfertilizer.cfg[/font] while the game is closed, or do it in game on the Mod Manager's Mods screen, where changes take effect at once (see [url=https://github.com/AnExiledDev/SurvivalLog-ToiletFertilizer/blob/main/CONFIG.md]CONFIG.md[/url] for every setting; the cfg file explains each setting in English and Chinese). Each world can keep its own fertilizer and amount: pick them for a new world in Customizable Difficulty, or, while you play, change them for that world alone on the Mods screen.
+Change settings in game on the Mod Manager's Mods screen, where they take effect right away, or edit [font=Courier New]BepInEx\config\com.dev.survivallog.toiletfertilizer.cfg[/font] while the game is closed. The cfg file explains each setting in English and Chinese, and [url=https://github.com/AnExiledDev/SurvivalLog-ToiletFertilizer/blob/main/CONFIG.md]CONFIG.md[/url] lists them all. Each world can have its own fertilizer and amount. Pick them for a new world in Customizable Difficulty, or change them on the Mods screen while you play, which changes them for that world only.
 
 [size=5]Feedback[/size]
 Found a bug or have an idea? Come say hi on the [url=https://discord.gg/trTsyxUFqg]Core Directive Discord[/url], or post in this page's Posts tab. For bugs, please include [font=Courier New]BepInEx\LogOutput.log[/font].
-To reach me directly, message [b]exiled.dev[/b] on Discord; you can find me in the [url=https://discord.gg/MZGg4gQAUe]official Survival Log Discord[/url]. I'm also on X as [url=https://x.com/AnExiledDev]@AnExiledDev[/url].
+To reach me directly, message [b]exiled.dev[/b] on Discord. You can find me in the [url=https://discord.gg/MZGg4gQAUe]official Survival Log Discord[/url]. I'm also on X as [url=https://x.com/AnExiledDev]@AnExiledDev[/url].
 
 [size=5]Source and license[/size]
 Open source under MIT: [url=https://github.com/AnExiledDev/SurvivalLog-ToiletFertilizer]github.com/AnExiledDev/SurvivalLog-ToiletFertilizer[/url]
@@ -59,21 +58,22 @@ Open source under MIT: [url=https://github.com/AnExiledDev/SurvivalLog-ToiletFer
 [line]
 [size=5]简体中文[/size]
 
-每次上厕所只给 2 个基础肥料？Toilet Fertilizer 让你把这一趟变得更值：比如改为给 4 个高级有机肥料，游戏里最好的肥料。
+每次上厕所只给 2 个基础肥料。装上 Toilet Fertilizer，你可以自己选马桶给什么，比如 4 个高级有机肥料，这是游戏里最好的肥料。
 
-默认不做任何改动：在 Mod Manager 的「模组」界面或配置里设置 [font=Courier New]Fertilizer[/font] 和 [font=Courier New]Amount[/font] 之前，马桶仍给游戏原本的 2 个基础肥料。
+默认什么都不改。在 Mod Manager 的「模组」界面或配置里改 [font=Courier New]Fertilizer[/font] 和 [font=Courier New]Amount[/font] 之前，马桶还是正常给 2 个基础肥料。
 
 [size=5]主要功能[/size]
 [list]
-[*][b]更好的肥料[/b]：可以让每次上厕所给复合肥料或高级有机肥料，而不是基础肥料。[/*]
-[*][b]数量更多[/b]：每次给多少个由你决定，而不是 2 个。[/*]
-[*][b]自由选择[/b]：可选基础肥料、复合肥料或高级有机肥料，数量 1 到 20 任选。[/*]
-[*][b]其他不变[/b]：研究等和马桶共用同一个肥料包的奖励，仍按游戏原样发放。[/*]
+[*][b]选择肥料[/b]：基础肥料、复合肥料或高级有机肥料。高级有机肥料是游戏里最好的肥料。[/*]
+[*][b]选择数量[/b]：每次上厕所给 1 到 20 个，20 个正好一组。不装模组时马桶给 2 个。[/*]
+[*][b]只改马桶[/b]：研究和另一件同样给 2 个基础肥料的物品，照常给 2 个基础肥料。[/*]
 [/list]
 Toilet Fertilizer 不会往存档里添加任何内容，也不会修改游戏文件，随时可以移除。
 
+每项设置都有中英文说明。
+
 [size=5]已知问题[/size]
-只改变马桶的奖励。其他给肥料的途径保持游戏原样。
+只改马桶给的肥料。其他给肥料的地方都照常。
 
 [url=https://www.nexusmods.com/survivallog/mods/73]获取 Mod Manager[/url]，在游戏里设置所有模组。[url=https://sldb.core-directive.com/zh/]打开 Survival Log 维基[/url]，物品、配方、地图一查就有。
 
@@ -98,7 +98,7 @@ Toilet Fertilizer 不会往存档里添加任何内容，也不会修改游戏�
 从 [font=Courier New]BepInEx\plugins[/font] 文件夹中删除 [font=Courier New]ToiletFertilizer.dll[/font]。下次启动游戏时，马桶会恢复为给 2 个基础肥料。
 
 [size=5]配置[/size]
-可以在游戏内 Mod Manager 的「模组」界面修改，改动立即生效；也可以在游戏关闭时编辑 [font=Courier New]BepInEx\config\com.dev.survivallog.toiletfertilizer.cfg[/font]。配置文件中每项设置都有中文说明，完整说明见 [url=https://github.com/AnExiledDev/SurvivalLog-ToiletFertilizer/blob/main/CONFIG.md]CONFIG.md[/url]（英文）。每个存档都可以有自己的肥料种类和数量：新存档可以在「自定义难度」里选，游戏中也可以在「模组」界面只为当前存档修改。
+可以在游戏内 Mod Manager 的「模组」界面修改，改动立即生效，也可以在游戏关闭时编辑 [font=Courier New]BepInEx\config\com.dev.survivallog.toiletfertilizer.cfg[/font]。配置文件中每项设置都有中文说明，完整说明见 [url=https://github.com/AnExiledDev/SurvivalLog-ToiletFertilizer/blob/main/CONFIG.md]CONFIG.md[/url]（英文）。每个存档都可以有自己的肥料种类和数量：新存档可以在「自定义难度」里选，游戏中也可以在「模组」界面只为当前存档修改。
 
 [size=5]反馈[/size]
 发现 bug 或有好点子？欢迎来 [url=https://discord.gg/trTsyxUFqg]Core Directive Discord[/url] 打个招呼，或在本页的「Posts」标签里发帖。报告 bug 时，请附上 [font=Courier New]BepInEx\LogOutput.log[/font]。
