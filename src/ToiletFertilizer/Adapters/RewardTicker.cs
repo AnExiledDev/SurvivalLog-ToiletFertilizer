@@ -1,4 +1,5 @@
 using System;
+using ExiledToolkit.Kit;
 using UnityEngine;
 
 namespace ToiletFertilizer.Adapters;
@@ -12,5 +13,5 @@ public sealed class RewardTicker : MonoBehaviour
     {
     }
 
-    private void Update() => Tables?.Tick(Time.unscaledTime);
+    private void Update() => Tables?.Tick(Clock.Now);
 }

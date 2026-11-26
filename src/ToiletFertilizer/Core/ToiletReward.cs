@@ -17,6 +17,14 @@ public readonly record struct Reward(int ItemId, int Amount);
 /// <summary>The freshness range a package hands its items out with, as fractions of a new item.</summary>
 public readonly record struct LifeRange(float Min, float Max);
 
+/// <summary>What a check of the game's tables does: nothing, write the toilet package, or write it again after another mod broke it.</summary>
+public enum TableCheck
+{
+    Skip,
+    Write,
+    Repair,
+}
+
 /// <summary>
 /// The toilet's reward rules. The game's toilet hands out package 30001 (2 Basic Fertilizer), but research and one
 /// item use the same package, so the toilet is pointed at a package of its own instead of editing the shared one.
@@ -55,6 +63,17 @@ public static class ToiletReward
     /// nothing, so only a range of real numbers with min at or below max is safe to hand it.
     /// </summary>
     public static bool IsUsable(float min, float max) => IsReal(min) && IsReal(max) && min <= max;
+
+    /// <summary>
+    /// A new reward, or tables without the toilet package (rebuilt by the game, or never written), get it written. A
+    /// package someone changed into a range the game throws on is a repair. Anything else is left alone.
+    /// </summary>
+    public static TableCheck Check(bool isWantedChanged, bool hasToiletPackage, bool isUsable)
+    {
+        if (isWantedChanged || !hasToiletPackage) return TableCheck.Write;
+
+        return isUsable ? TableCheck.Skip : TableCheck.Repair;
+    }
 
     /// <summary>A freshness range the game can use: the given one, turned around if inverted, or the game's if it is not a real number.</summary>
     public static LifeRange UsableLife(float min, float max)

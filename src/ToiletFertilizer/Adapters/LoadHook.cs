@@ -1,12 +1,12 @@
 using ExiledToolkit.Game;
 using GameCore.HotUpdate.Battle.Logic;
+using GameCore.HotUpdate;
 
 namespace ToiletFertilizer.Adapters;
 
 /// <summary>
-/// Asks the reward tables for one more check when a save loads or a trip starts (AgentManager.DeduplicateAgentSavesForLoad
-/// runs for both). The target has no relative jump or call in its first 14 bytes; Game Rules, Package Bank and Wind
-/// Power hook it too. Static because a Harmony patch has nowhere else to look.
+/// Asks the reward tables for one more check when a run starts: a save load, a trip, and a new game's first start
+/// (AgentManager.StartBattle runs for all of them). Static because a Harmony patch has nowhere else to look.
 /// </summary>
 internal static class LoadHook
 {
@@ -18,7 +18,8 @@ internal static class LoadHook
         hooks.Patch(
             typeof(LoadHook),
             typeof(AgentManager),
-            "DeduplicateAgentSavesForLoad",
+            nameof(AgentManager.StartBattle),
+            new[] { typeof(GameSaveData), typeof(GameMode) },
             postfix: nameof(AfterLoad),
             consequence: "if another mod changes the toilet's package after the game starts, it is not written again until the setting changes");
     }

@@ -8,24 +8,24 @@ namespace ToiletFertilizer.Adapters;
 
 /// <summary>
 /// Writes the toilet's own package into the game's package table and points the toilet effects at it, once the game has
-/// loaded its tables. The game builds its tables once, at game start, so this runs only when it is due: at start, when
-/// the reward setting changes, and when a save loads (in case another mod changed the package). While the tables are
-/// not loaded yet it tries again each second, and stops once it has written.
+/// loaded its tables. The game builds its tables at game start, and builds them again if the web UI failed to start, so
+/// this runs only when it is due: at start, when the reward setting changes, and when a run starts (in case the tables
+/// were rebuilt or another mod changed the package). While the tables are not loaded yet it tries again each second,
+/// and stops once it has looked.
 /// </summary>
 internal sealed class RewardTables
 {
-    private const float RetrySeconds = 1f;
+    private const double RetrySeconds = 1;
 
     private readonly Action<string> _log;
     private (Fertilizer Fertilizer, int Amount) _wanted = (ToiletReward.GameFertilizer, ToiletReward.GameAmount);
-    private (IntPtr Packages, IntPtr Effects) _applied;
     private bool _isWantedChanged;
 
     /// <summary>Set once a rewrite after another mod broke the package is logged, so a mod that keeps breaking it does not fill the log.</summary>
     private bool _isRepairLogged;
 
     private bool _isDue = true;
-    private float _nextTryAt;
+    private double _nextTryAt;
 
     public RewardTables(Action<string> log) => _log = log;
 
@@ -36,10 +36,10 @@ internal sealed class RewardTables
         _isDue = true;
     }
 
-    /// <summary>A save loaded: check the package once more at the next frame.</summary>
+    /// <summary>A run started: check the package once more at the next frame.</summary>
     public void Redo() => _isDue = true;
 
-    public void Tick(float now)
+    public void Tick(double now)
     {
         if (!_isDue || now < _nextTryAt) return;
 
@@ -53,13 +53,13 @@ internal sealed class RewardTables
 
         _isDue = false;
 
-        var tables = (packages.Pointer, effects.Pointer);
+        var hasToiletPackage = packages.ContainsKey(ToiletReward.ToiletPackageId);
+        var check = ToiletReward.Check(_isWantedChanged, hasToiletPackage, hasToiletPackage && IsToiletPackageUsable(packages));
 
-        var isRepair = tables == _applied && !_isWantedChanged;
+        if (check == TableCheck.Skip) return;
 
-        if (isRepair && IsToiletPackageUsable(packages)) return;
+        var isRepair = check == TableCheck.Repair;
 
-        _applied = tables;
         _isWantedChanged = false;
 
         try
@@ -103,15 +103,13 @@ internal sealed class RewardTables
 
     /// <summary>
     /// False when something has changed the toilet package's freshness range since it was written into one the game
-    /// throws on, so this check writes it again.
+    /// throws on, or emptied the row, so this check writes it again.
     /// </summary>
     private static bool IsToiletPackageUsable(Il2CppSystem.Collections.Generic.Dictionary<int, Config_Package> packages)
     {
-        if (!packages.ContainsKey(ToiletReward.ToiletPackageId)) return true;
-
         var row = packages[ToiletReward.ToiletPackageId];
 
-        return row == null || ToiletReward.IsUsable(row.LifeMin, row.LifeMax);
+        return row != null && ToiletReward.IsUsable(row.LifeMin, row.LifeMax);
     }
 
     /// <summary>A copy of the shared package with the chosen reward, so the game reads it like its own.</summary>

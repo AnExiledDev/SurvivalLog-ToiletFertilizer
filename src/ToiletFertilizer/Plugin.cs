@@ -14,7 +14,7 @@ namespace ToiletFertilizer;
 public sealed class Plugin : BasePlugin
 {
     private const string Guid = "com.dev.survivallog.toiletfertilizer";
-    private const string Version = "0.2.4";
+    private const string Version = "0.2.5";
 
     public override void Load()
     {

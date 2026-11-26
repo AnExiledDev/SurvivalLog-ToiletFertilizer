@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.2.5
+
+- Fixed: if the game loaded its data a second time at start up, the toilet could go back to its normal reward until you changed a setting.
+- The reward is now checked on a new game's first start too.
+- Made for Survival Log 1.1.21671.
+
 ## 0.2.4
 
 - The mod no longer checks the toilet reward once a second for the whole game. It writes the reward once the game has loaded, again when you change a setting, and checks it again when a save loads.
