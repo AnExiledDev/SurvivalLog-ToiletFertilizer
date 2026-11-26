@@ -8,11 +8,13 @@ namespace ToiletFertilizer.Adapters;
 
 /// <summary>
 /// Writes the toilet's own package into the game's package table and points the toilet effects at it, once the game has
-/// loaded its tables. It writes again when the game loads the tables afresh or the reward setting changes.
+/// loaded its tables. The game builds its tables once, at game start, so this runs only when it is due: at start, when
+/// the reward setting changes, and when a save loads (in case another mod changed the package). While the tables are
+/// not loaded yet it tries again each second, and stops once it has written.
 /// </summary>
 internal sealed class RewardTables
 {
-    private const float CheckSeconds = 1f;
+    private const float RetrySeconds = 1f;
 
     private readonly Action<string> _log;
     private (Fertilizer Fertilizer, int Amount) _wanted = (ToiletReward.GameFertilizer, ToiletReward.GameAmount);
@@ -22,7 +24,8 @@ internal sealed class RewardTables
     /// <summary>Set once a rewrite after another mod broke the package is logged, so a mod that keeps breaking it does not fill the log.</summary>
     private bool _isRepairLogged;
 
-    private float _nextCheckAt;
+    private bool _isDue = true;
+    private float _nextTryAt;
 
     public RewardTables(Action<string> log) => _log = log;
 
@@ -30,19 +33,25 @@ internal sealed class RewardTables
     {
         _wanted = (fertilizer, amount);
         _isWantedChanged = true;
+        _isDue = true;
     }
+
+    /// <summary>A save loaded: check the package once more at the next frame.</summary>
+    public void Redo() => _isDue = true;
 
     public void Tick(float now)
     {
-        if (now < _nextCheckAt) return;
+        if (!_isDue || now < _nextTryAt) return;
 
-        _nextCheckAt = now + CheckSeconds;
+        _nextTryAt = now + RetrySeconds;
 
         var config = GameSingleton.Existing<ConfigManager>();
         var packages = config?._Config_Package_Dict;
         var effects = config?._Config_Effect_Dict;
 
         if (packages == null || effects == null || packages.Count == 0 || effects.Count == 0) return;
+
+        _isDue = false;
 
         var tables = (packages.Pointer, effects.Pointer);
 

@@ -2,6 +2,8 @@ using BepInEx;
 using BepInEx.Configuration;
 using BepInEx.Unity.IL2CPP;
 using ExiledToolkit;
+using ExiledToolkit.Game;
+using HarmonyLib;
 using ToiletFertilizer.Adapters;
 using ToiletFertilizer.Core;
 
@@ -12,7 +14,7 @@ namespace ToiletFertilizer;
 public sealed class Plugin : BasePlugin
 {
     private const string Guid = "com.dev.survivallog.toiletfertilizer";
-    private const string Version = "0.2.3";
+    private const string Version = "0.2.4";
 
     public override void Load()
     {
@@ -29,6 +31,7 @@ public sealed class Plugin : BasePlugin
 
         Log.LogInfo($"===== Toilet Fertilizer {Version} started");
         RewardTicker.Tables = tables;
+        LoadHook.Apply(new PatchKit(new Harmony(Guid), message => Log.LogWarning(message)), tables);
         LiveSettings.Watch(() => tables.Want(fertilizer.Value, amount.Value), fertilizer, amount);
         AddComponent<RewardTicker>();
     }

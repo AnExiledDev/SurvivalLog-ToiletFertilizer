@@ -23,7 +23,7 @@ In the game's data, the toilet, research and one item all give the same 2 Basic 
 
 ## Requirements
 
-- Survival Log 1.1.20719. The mod is built for this version, and a game update can break it until the mod is updated.
+- Survival Log 1.1.21671. The mod is built for this version, and a game update can break it until the mod is updated.
 - The [BepInEx Pack for Survival Log](https://www.nexusmods.com/survivallog/mods/12), the BepInEx 6 (IL2CPP) build for the game.
 - [Exiled's Toolkit](https://github.com/AnExiledDev/SurvivalLog-ExiledToolkit) 0.19.0 or newer. Toilet Fertilizer does not load without it. It applies settings changed on the Mod Manager's Mods screen without restarting the game, and lets each world keep its own `Fertilizer` and `Amount`.
 - Optional: [Mod Manager](https://www.nexusmods.com/survivallog/mods/73). With it, you can change every setting in game on its Mods screen and see what each one does, without opening the config file.
@@ -48,7 +48,7 @@ Settings live in `BepInEx\config\com.dev.survivallog.toiletfertilizer.cfg`, crea
 
 Built against BepInEx `6.0.0-be.788`.
 
-Check `BepInEx\LogOutput.log` for `===== Toilet Fertilizer 0.2.3 started`. Once a game has loaded, a line starting with `the toilet now gives` shows which fertilizer the toilet gives and how many. When everything worked, it ends with `2 of 2 toilet effects use it`.
+Check `BepInEx\LogOutput.log` for `===== Toilet Fertilizer 0.2.4 started`. Once a game has loaded, a line starting with `the toilet now gives` shows which fertilizer the toilet gives and how many. When everything worked, it ends with `2 of 2 toilet effects use it`.
 
 ## Feedback and bug reports
 
